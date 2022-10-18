@@ -19,6 +19,7 @@ function TODOFormAdd(props: Props) {
       </header>
       <textarea
         value={description}
+        required
         placeholder="Descripción de la actividad"
         onChange={(event) => setDescription(event.target.value)}
       />
