@@ -1,0 +1,18 @@
+.t-form-add {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+.t-form-add textarea {
+    resize: none;
+    width: 80%;
+    height: 5rem;
+}
+
+.t-form-add .t-form-btn {
+    margin-right: 1rem;
+}

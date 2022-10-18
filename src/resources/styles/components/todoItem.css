@@ -1,0 +1,46 @@
+.t-item {
+    background-color: #192939;
+    width: 50vw;
+    height: 5rem;
+    margin-top: 2rem;
+    padding: 0 1rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 5px 50px gray;
+}
+
+.t-item .t-icon {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 48px;
+    width: 48px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.t-item .t-icon.t-icon-check {
+    position: absolute;
+    left: 12px;
+}
+
+.t-item.t-item-completed .t-icon.t-icon-check {
+    color: green;
+}
+
+.t-item.t-item-completed p {
+    text-decoration: line-through;
+}
+
+.t-item .t-icon.t-icon-delete {
+    position: absolute;
+    top: -24px;
+    right: 0;
+}
+
+.t-item .t-icon.t-icon-delete:hover {
+    color: red;
+}

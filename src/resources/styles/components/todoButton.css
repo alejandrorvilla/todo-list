@@ -1,0 +1,16 @@
+.t-btn {
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    color: white;
+    background-color: #192939;
+    cursor: pointer;
+}
+
+.t-btn:hover {
+    background-color: #2a4158;
+}
+
+.t-btn:active {
+    background-color: #192939;
+}
