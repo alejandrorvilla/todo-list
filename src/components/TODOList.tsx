@@ -4,19 +4,7 @@ import TODOItem from "./TODOItem";
 import "../resources/styles/components/todoList.css";
 
 function TODOList(props: Props) {
-  const { filteredItems, items, setItems } = props;
-  const onCompleted = (display: string) => {
-    const index = items.findIndex((item) => item.display === display);
-    const newItems = [...items];
-    newItems[index].completed = !newItems[index].completed;
-    setItems(newItems);
-  };
-  const onDeleted = (display: string) => {
-    const index = items.findIndex((item) => item.display === display);
-    const newItems = [...items];
-    newItems.splice(index, 1);
-    setItems(newItems);
-  };
+  const { filteredItems, onCompleted, onDeleted } = props;
 
   return (
     <ul className="t-list">
@@ -33,9 +21,9 @@ function TODOList(props: Props) {
 }
 
 interface Props {
-  items: Array<Item>;
   filteredItems: Array<Item>;
-  setItems: (items: Array<Item>) => void;
+  onCompleted: (display: string) => void;
+  onDeleted: (display: string) => void;
 }
 
 export default TODOList;

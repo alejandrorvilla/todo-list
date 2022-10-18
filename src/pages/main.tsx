@@ -22,6 +22,18 @@ function Main() {
     setItems(newItems);
     setShowModal(false);
   };
+  const onCompletedActivity = (display: string) => {
+    const index = items.findIndex((item) => item.display === display);
+    const newItems = [...items];
+    newItems[index].completed = !newItems[index].completed;
+    setItems(newItems);
+  };
+  const onDeletedActivity = (display: string) => {
+    const index = items.findIndex((item) => item.display === display);
+    const newItems = [...items];
+    newItems.splice(index, 1);
+    setItems(newItems);
+  };
 
   let filteredItems: Array<Item>;
   if (searcherValue) {
@@ -45,9 +57,9 @@ function Main() {
           onClick={() => setShowModal(true)}
         />
         <TODOList
-          items={items}
           filteredItems={filteredItems}
-          setItems={setItems}
+          onCompleted={onCompletedActivity}
+          onDeleted={onDeletedActivity}
         />
       </section>
       {showModal && (
