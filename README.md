@@ -5,6 +5,7 @@ Permite almacenar en LocalStorage actividades, filtrarlas, marcarlas como termin
 
 * useState
 * Custom Hook
+* createPortal
 * Composicion de componentes
 * TypeScript
 
