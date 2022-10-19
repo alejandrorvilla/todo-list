@@ -1,56 +1,33 @@
-import React, { useState } from "react";
+import React from "react";
 import TODOButton from "../components/base/TODOButton";
 import TODOCounter from "../components/TODOCounter";
 import TODOList from "../components/TODOList";
 import TODOModal from "../components/base/TODOModal";
 import TODOSearcher from "../components/TODOSearcher";
-import useItems from "../hooks/useItems";
-import { Item } from "../model/Item";
-import "../resources/styles/main.css";
 import TODOFormAdd from "../components/TODOFormAdd";
+import useItems from "../hooks/useItems";
+import "../resources/styles/main.css";
+import TODOHeader from "../components/base/TODOHeader";
 
 function Main() {
-  const [items, setItems] = useItems("activities", []);
-  const [searcherValue, setSearcherValue] = useState<string>("");
-  const [showModal, setShowModal] = useState<boolean>(false);
-  const addActivity = (description: string) => {
-    const newItems = [...items];
-    newItems.push({
-      display: description,
-      completed: false,
-    });
-    setItems(newItems);
-    setShowModal(false);
-  };
-  const onCompletedActivity = (display: string) => {
-    const index = items.findIndex((item) => item.display === display);
-    const newItems = [...items];
-    newItems[index].completed = !newItems[index].completed;
-    setItems(newItems);
-  };
-  const onDeletedActivity = (display: string) => {
-    const index = items.findIndex((item) => item.display === display);
-    const newItems = [...items];
-    newItems.splice(index, 1);
-    setItems(newItems);
-  };
-
-  let filteredItems: Array<Item>;
-  if (searcherValue) {
-    filteredItems = items.filter((item) =>
-      item.display.toLowerCase().includes(searcherValue.toLowerCase())
-    );
-  } else {
-    filteredItems = items;
-  }
+  const {
+    addActivity,
+    onCompletedActivity,
+    onDeletedActivity,
+    filteredItems,
+    items,
+    showModal,
+    setShowModal,
+    setSearcherValue,
+  } = useItems();
 
   return (
     <React.Fragment>
-      <header>
+      <TODOHeader>
         <TODOCounter items={items} />
-      </header>
-      <section className="t-main">
         <TODOSearcher onSearch={setSearcherValue} />
+      </TODOHeader>
+      <section className="t-main">
         <TODOButton
           text="Agregar actividad"
           type="button"
